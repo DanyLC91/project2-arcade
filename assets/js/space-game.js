@@ -98,3 +98,27 @@ function update() {
             }
         }
     }
+
+     //bullets
+     for (let i = 0; i < bulletArray.length; i++) {
+        let bullet = bulletArray[i];
+        bullet.y += bulletVelocityY;
+        context.fillStyle="white";
+        context.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+
+        //bullet collision with aliens
+        for (let j = 0; j < alienArray.length; j++) {
+            let alien = alienArray[j];
+            if (!bullet.used && alien.alive && detectCollision(bullet, alien)) {
+                bullet.used = true;
+                alien.alive = false;
+                alienCount--;
+                score += 100;
+            }
+        }
+    }
+
+    //clear bullets
+    while (bulletArray.length > 0 && (bulletArray[0].used || bulletArray[0].y < 0)) {
+        bulletArray.shift(); //removes the first element of the array
+    }
