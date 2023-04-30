@@ -34,3 +34,10 @@ let alienRows = 2;
 let alienColumns = 3;
 let alienCount = 0; //number of aliens to defeat
 let alienVelocityX = 1;
+
+//bullets
+let bulletArray = [];
+let bulletVelocityY = -10; 
+
+let score = 0;
+let gameOver = false;
