@@ -137,3 +137,7 @@ function update() {
         bulletArray = [];
         createAliens();
     }
+    //score
+    context.fillStyle="white";
+    context.font="16px courier";
+    context.fillText(score, 5, 20);
