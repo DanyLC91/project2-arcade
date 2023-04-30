@@ -41,3 +41,25 @@ let bulletVelocityY = -10;
 
 let score = 0;
 let gameOver = false;
+
+window.onload = function() {
+    board = document.getElementById("board");
+    board.width = boardWidth;
+    board.height = boardHeight;
+    context = board.getContext("2d");
+    
+    //load images
+    shipImg = new Image();
+    shipImg.src = "assets/images/green-ship.png";
+    shipImg.onload = function() {
+        context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
+    }
+
+    alienImg = new Image();
+    alienImg.src = "assets/images/green-ship.png";
+    createAliens();
+
+    requestAnimationFrame(update);
+    document.addEventListener("keydown", moveShip);
+    document.addEventListener("keyup", shoot);
+}
