@@ -122,3 +122,18 @@ function update() {
     while (bulletArray.length > 0 && (bulletArray[0].used || bulletArray[0].y < 0)) {
         bulletArray.shift(); //removes the first element of the array
     }
+    //next level
+    if (alienCount == 0) {
+        score += alienColumns * alienRows * 100; //bonus points :)
+        alienColumns = Math.min(alienColumns + 1, columns/2 -2); 
+        alienRows = Math.min(alienRows + 1, rows-4);  
+        if (alienVelocityX > 0) {
+            alienVelocityX += 0.2; 
+        }
+        else {
+            alienVelocityX -= 0.2;
+        }
+        alienArray = [];
+        bulletArray = [];
+        createAliens();
+    }
