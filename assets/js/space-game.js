@@ -21,3 +21,16 @@ let ship = {
 }
 let shipImg;
 let shipVelocityX = tileSize;
+
+//aliens
+let alienArray = [];
+let alienWidth = tileSize*2;
+let alienHeight = tileSize;
+let alienX = tileSize;
+let alienY = tileSize;
+let alienImg;
+
+let alienRows = 2;
+let alienColumns = 3;
+let alienCount = 0; //number of aliens to defeat
+let alienVelocityX = 1;
