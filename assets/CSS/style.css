@@ -55,3 +55,17 @@ body {
     color: rgb(156, 156, 156);
     border: solid rgb(156, 156, 156);
 }
+
+/*Sapace Invaders Page*/
+.space-page{
+    background-color: rgb(3, 2, 41);
+    text-align: center;
+  
+}
+#space-title{
+    font-family: 'Bungee Shade', cursive;    
+    color:  rgb(56, 248, 8);
+    background-color: #080169;
+    font-size:10vmin;
+    margin: 0;
+}
