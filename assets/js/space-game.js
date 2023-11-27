@@ -53,6 +53,7 @@ let bulletArray = [];
 let bulletVelocityY = -10; 
 
 let score = 0;
+
 let gameOver = false;
 
 window.onload = function() {
@@ -81,7 +82,48 @@ window.onload = function() {
         // Hide the start container when the button is clicked
         document.getElementById('startContainer').style.display = 'none';
     });
+    // Add click event listeners for mobile controls
+    document.getElementById('leftKey').addEventListener('click', function () {
+        moveShipMobile('left');
+    });
 
+    document.getElementById('rightKey').addEventListener('click', function () {
+        moveShipMobile('right');
+    });
+
+    // Add click event listener for the shoot button
+    document.getElementById('shootKey').addEventListener('click', function () {
+        handleShoot();
+    });
+
+    // Add a keyup event listener for the Space key
+    document.addEventListener("keyup", function (e) {
+        if (e.code == "Space") {
+            // Handle shooting when the Space key is released
+            handleShoot();
+        }
+    });
+    // Function to create and draw aliens on the canvas
+    function createAndDrawAliens() {
+        for (let c = 0; c < alienColumns; c++) {
+            for (let r = 0; r < alienRows; r++) {
+                let alien = {
+                    img: alienImg,
+                    x: alienX + c * alienWidth,
+                    y: alienY + r * alienHeight,
+                    width: alienWidth,
+                    height: alienHeight,
+                    alive: true
+                };
+                // Add the newly created alien to the alienArray
+                alienArray.push(alien);
+                // Draw the alien on the canvas
+                context.drawImage(alienImg, alien.x, alien.y, alien.width, alien.height);
+            }
+        }
+        // Set the initial count of alive aliens
+        alienCount = alienArray.length;
+    }
      // Call createAndDrawAliens on initial load
      createAndDrawAliens();
     
@@ -159,7 +201,7 @@ function update() {
             context.drawImage(alienImg, alien.x, alien.y, alien.width, alien.height);
 
             if (alien.y >= ship.y) {
-                gameOver = true;
+                handleGameOver();
             }
         }
     }
@@ -236,22 +278,25 @@ function createAliens() {
     }
     alienCount = alienArray.length;
 }
-function shoot(e) {
+
+function handleShoot() {
     if (gameOver) {
         return;
     }
 
-    if (e.code == "Space") {
-        //shoot
-        let bullet = {
-            x : ship.x + shipWidth*15/32,
-            y : ship.y,
-            width : tileSize/8,
-            height : tileSize/2,
-            used : false
-        }
-        bulletArray.push(bullet);
-    }
+    // Shoot
+    let bullet = {
+        x: ship.x + shipWidth * 15 / 32,
+        y: ship.y,
+        width: tileSize / 8,
+        height: tileSize / 2,
+        used: false
+    };
+    bulletArray.push(bullet);
+}
+
+function shoot(e) {
+    handleShoot();
 }
 
 function detectCollision(a, b) {
