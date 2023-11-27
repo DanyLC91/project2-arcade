@@ -1,6 +1,5 @@
 let gameStarted = false;
 
-
 function initializeGame() {
     // Display the canvas
     document.getElementById('board').style.display = 'block';
@@ -70,7 +69,7 @@ window.onload = function() {
     }
 
     alienImg = new Image();
-    alienImg.src = "assets/images/green-ship.png";
+    alienImg.src = "assets/images/white-ufo.png";
     createAliens();
 
     requestAnimationFrame(update);
@@ -82,6 +81,35 @@ window.onload = function() {
         // Hide the start container when the button is clicked
         document.getElementById('startContainer').style.display = 'none';
     });
+
+     // Call createAndDrawAliens on initial load
+     createAndDrawAliens();
+    
+     // ...
+     
+     document.getElementById('restart').addEventListener('click', function () {
+         // Reset game-related variables
+         gameStarted = false;
+         gameOver = false;
+         score = 0;
+         ship.x = shipX;
+         ship.y = shipY;
+         bulletArray = [];
+         alienColumns = 3;
+         alienRows = 2;
+         alienVelocityX = 1;
+         
+         // Clear the existing aliens
+         alienArray = [];
+         
+         // Hide the game over container
+         document.getElementById('gameOverContainer').style.display = 'none';
+         
+         // Draw new aliens and start a new game
+         createAndDrawAliens();
+         startGame();
+     });
+ 
 }
 
 // Function to start the game
@@ -231,4 +259,13 @@ function detectCollision(a, b) {
            a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
            a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
            a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+}
+function handleGameOver() {
+    gameOver = true;
+
+    // Display the game over container
+    document.getElementById('gameOverContainer').style.display = 'block';
+
+    // Display the final score
+    document.getElementById('scoreValue').innerText = score;
 }
