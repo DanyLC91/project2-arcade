@@ -156,7 +156,23 @@ body {
     background: grey;
     border-radius: 20%;
 }
-
+/* Styling for Virtual Keys  for Mobile Play*/
+#virtualKeys {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+}
+.virtualKey {
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 85%;
+    display: none;
+}
 
 
 /*404 Error Page Style*/
