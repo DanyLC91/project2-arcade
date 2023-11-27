@@ -65,11 +65,15 @@ body {
 }
 
 /*Sapace Invaders Page*/
+/*Styling for the Background */
 .space-page{
-    background-color: rgb(3, 2, 41);
     text-align: center;
+    background-image: url("../images/bkgn-img.png");
+    background-size: auto;
+    background-repeat: repeat;
   
 }
+/* Styling for the main title */
 #space-title{
     font-family: 'Bungee Shade', cursive;    
     color:  rgb(56, 248, 8);
@@ -77,6 +81,7 @@ body {
     font-size:10vmin;
     margin: 0;
 }
+/* Styling for the home button */
 #home {
     font-family: 'Press Start 2P', cursive;
     color: #70706f;
@@ -90,6 +95,7 @@ body {
     cursor: pointer;
     background: none;    
 }
+/* Styling for button hover effect */
 #home:hover{
     color: rgb(156, 156, 156);
     border: solid rgb(156, 156, 156);
