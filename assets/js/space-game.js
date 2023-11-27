@@ -1,3 +1,17 @@
+let gameStarted = false;
+
+
+function initializeGame() {
+    // Display the canvas
+    document.getElementById('board').style.display = 'block';
+    // Hide the start container
+    document.getElementById('instructionsContainer').style.display = 'none';
+    // Hide the start button
+    document.getElementById('startButton').style.display = 'none';
+    // Show the game container
+    document.getElementById('gameContainer').style.display = 'block';
+}
+
 //board
 let tileSize = 32;
 let rows = 16;
@@ -62,7 +76,30 @@ window.onload = function() {
     requestAnimationFrame(update);
     document.addEventListener("keydown", moveShip);
     document.addEventListener("keyup", shoot);
+
+    // Add a click event listener for the start button
+    document.getElementById('startButton').addEventListener('click', function () {
+        // Hide the start container when the button is clicked
+        document.getElementById('startContainer').style.display = 'none';
+    });
 }
+
+// Function to start the game
+function startGame() {
+    // Check if the game has not already started
+    if (!gameStarted) {
+        gameStarted = true; // Call the function to initialize and start the game
+        initializeGame();
+    }
+}
+// Function to initialize the game
+function initializeGame() {
+    // Display the game board by setting its style display property to 'block'
+    document.getElementById('board').style.display = 'block';
+    // Hide the start container by setting its style display property to 'none'
+    document.getElementById('instructionsContainer').style.display = 'none';
+}
+
 function update() {
     requestAnimationFrame(update);
 
