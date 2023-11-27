@@ -182,3 +182,62 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+
+/* Responsive styles */
+/* Media Query for screens with a maximum width of 1300px */
+@media only screen and (max-width: 1300px) {
+    #main-title {
+      font-size: 14vmin;
+      left: 10%;
+      right: 10%;
+      top: 30%;
+    }
+    #sec-title {
+        font-size: 8vmin;
+        width: 35%;
+        left: 60%;
+        top: 36%;
+    }
+}
+/* Media Query for screens with a maximum width of 780px */
+@media only screen and (max-width: 780px) {
+    /*Landing Page*/
+    #main-title {
+      font-size: 10vmin;
+      left: 10%;
+      right: 10%;
+      top: 30%;
+    }  
+    #sec-title {
+        top: 36%;
+        width: 35%;     
+    }  
+    .enter {
+      width: 150%;
+      font-size: 3vmin;
+    }
+
+    /*Space Invaders Page*/
+    /* Adjust font size for smaller screens */  
+    #space-title {
+        font-size: 6vmin;   
+    }
+    .instructionsPC{
+        display: none;
+    }
+    .instructionsMobile{
+        display: block;
+    }
+
+    #board {
+        display: none;
+    }
+
+    #buttonContainer {
+        display: block;
+    }
+    .virtualKey{
+        display: block;
+    }
+}
