@@ -126,8 +126,6 @@ window.onload = function() {
     }
      // Call createAndDrawAliens on initial load
      createAndDrawAliens();
-    
-     // ...
      
      document.getElementById('restart').addEventListener('click', function () {
          // Reset game-related variables
